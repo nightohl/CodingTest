@@ -5,11 +5,12 @@
 // i : 모집단의 몇번째를 시작으로 보고 있는지
 
 // nCr 생각하면 됨
-function combination(source, picked, n, r, i) {
+export function combination(source, picked, n, r, i, fn) {
   //
-  if (r === 0)
+  if (r === 0) {
     // r개를 다 뽑은 경우
-    final.push(picked);
+    fn(picked);
+  }
   // nC0는 n개 중에서 0개를 뽑는 것이므로 nCr, nCr-1, ... 에서 끝에 도달했다는 뜻
   // 즉, r개를 다 뽑았다는 뜻이므로 결과에 담음.
   else if (n === 0 || n < r) return;
@@ -17,14 +18,8 @@ function combination(source, picked, n, r, i) {
   else {
     // 아직 다 뽑지 못한 경우
     picked.push(source[i]);
-    combination(source, Object.assign([], picked), n - 1, r - 1, i + 1);
+    combination(source, Object.assign([], picked), n - 1, r - 1, i + 1, fn);
     picked.pop();
-    combination(source, Object.assign([], picked), n - 1, r, i + 1);
+    combination(source, Object.assign([], picked), n - 1, r, i + 1, fn);
   }
 }
-
-const source = [1, 2, 3, 4, 5];
-const final = []; // 모든 조합 결과를 다 담을 결과버퍼
-
-combination(source, [], 3, 2, 0); // 3C2 인 거고 집합은 [1,2,3]
-console.log("final", final); // 따라서  final [ [1,2], [1,3], [2,3] ]
