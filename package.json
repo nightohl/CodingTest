@@ -1,0 +1,19 @@
+{
+  "name": "codingtest",
+  "version": "1.0.0",
+  "description": "코테 연습",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nightohl/CodingTest.git"
+  },
+  "author": "nightohl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nightohl/CodingTest/issues"
+  },
+  "homepage": "https://github.com/nightohl/CodingTest#readme"
+}
